@@ -118,13 +118,19 @@ const JobListing = () => {
         <h3 className="text-2xl font-bold mb-2">Latest Jobs</h3>
         <p className="text-gray-600 mb-6">Get your desired job from top Companies</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<<<<<<< HEAD
           {currentJobs.map((job,index)=>(
             <JobCard key={ job._id} job={job}  />
+=======
+          {jobs.slice((currentPage-1)*6,currentPage*6).map((job,index)=>(
+            <JobCard key={index} job={job} delay={index % 5} />
+>>>>>>> 374fa398bba0b5c43c8f5211555fa3fe7a07713b
           ))}
         </div>
 
         {/* Pagination */}
         {
+<<<<<<< HEAD
           filteredJobs.length >0 &&(
             <div className="flex items-center justify-center gap-2 mt-8">
               <a href="#job-list" className="p-2 bg-gray-200 rounded hover:bg-gray-300 transition">
@@ -137,6 +143,20 @@ const JobListing = () => {
               ))}
                <a href="#job-list" className="p-2 bg-gray-200 rounded hover:bg-gray-300 transition">
                 <img onClick={()=> setCurrentPage(Math.min(currentPage+1,Math.ceil(filteredJobs.length/6)))} src={assets.right_arrow_icon} alt="" />
+=======
+          jobs.length >0 &&(
+            <div className="flex justify-center items-center gap-2 mt-8">
+              <a href="#job-list" className="p-2 hover:bg-gray-100 rounded transition-colors">
+                <img onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))} src={assets.left_arrow_icon} alt="Previous" className="w-6 h-6 cursor-pointer" />
+              </a>
+      {Array.from({length:Math.ceil(jobs.length/6)}).map((_,index)=>(
+                <a href="#job-list" key={index}>
+                  <button onClick={()=>setCurrentPage(index+1)} className={`px-3 py-2 rounded transition-colors ${currentPage ===index+1 ?'bg-blue-500 text-white':'text-gray-500 hover:bg-gray-200'}`}>{index+1}</button>
+                </a>
+              ))}
+               <a href="#job-list" className="p-2 hover:bg-gray-100 rounded transition-colors">
+                <img onClick={() => setCurrentPage(Math.min(currentPage + 1, Math.ceil(jobs.length / 6)))} src={assets.right_arrow_icon} alt="Next" className="w-6 h-6 cursor-pointer" />
+>>>>>>> 374fa398bba0b5c43c8f5211555fa3fe7a07713b
               </a>
             </div>
           )

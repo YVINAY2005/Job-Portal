@@ -3,6 +3,7 @@ import { assets } from '../assets/assets'
 
 const AppDownload = () => {
   return (
+<<<<<<< HEAD
     <div className="bg-blue-50 py-8 px-4 shadow-lg rounded-lg">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
         <div className="text-center md:text-left mb-6 md:mb-0">
@@ -17,6 +18,22 @@ const AppDownload = () => {
           </div>
         </div>
         <img src={assets.app_main_img} alt="App Main Image" className="hidden md:block w-full max-w-xs md:max-w-xs rounded-lg shadow-lg" />
+=======
+    <div>
+      <div>
+        <div>
+            <h1>Download mobile app for better experience</h1>
+            <div>
+                <a href="#">
+                    <img src={assets.play_store} alt="" />
+                </a>
+                <a href="#">
+                    <img src={assets.app_store} alt="" />
+                </a>
+            </div>
+        </div>
+        <img src={assets.app_main_img} alt="" />
+>>>>>>> 374fa398bba0b5c43c8f5211555fa3fe7a07713b
       </div>
     </div>
   )
