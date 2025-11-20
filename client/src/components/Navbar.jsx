@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { assets } from '../assets/assets'
 import {useClerk, UserButton, useUser} from '@clerk/clerk-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const {openSignIn}=useClerk();
     const {user}=useUser();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const navigate=useNavigate();
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -15,7 +16,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0">
-            <img className="h-10 w-auto" src={assets.logo} alt="Logo" />
+            <img onClick={()=> navigate('/')} className="h-10 w-auto" src={assets.logo} alt="Logo" />
           </div>
           <div className="flex items-center">
             <button onClick={toggleMenu} className="md:hidden p-2 focus:outline-none">

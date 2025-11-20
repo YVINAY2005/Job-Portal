@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
 import { AppContext } from '../context/AppContext'
+import { useNavigate } from 'react-router-dom';
 
 const JobCard = ({job, delay = 0}) => {
   const { saveJob, unsaveJob, isJobSaved } = useContext(AppContext);
   const saved = isJobSaved(job._id);
+  const navigate=useNavigate();
 
   const handleSaveToggle = () => {
     if (saved) {
@@ -26,8 +28,8 @@ const JobCard = ({job, delay = 0}) => {
         </div>
         <p className="text-gray-700 mb-3 text-sm" dangerouslySetInnerHTML={{__html: job.description.slice(0,120)}}></p>
         <div className="flex space-x-2">
-            <button className="bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600 transition-colors">Apply Now</button>
-            <button className="bg-gray-500 text-white px-3 py-1 rounded text-sm hover:bg-gray-600 transition-colors">Learn more</button>
+            <button onClick={()=>{navigate(`/apply-jobs/${job._id}`); scrollTo(0,0)}} className="bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600 transition-colors">Apply Now</button>
+            <button onClick={()=>{navigate(`/apply-jobs/${job._id}`); scrollTo(0,0)}} className="bg-gray-500 text-white px-3 py-1 rounded text-sm hover:bg-gray-600 transition-colors">Learn more</button>
             <button
               onClick={handleSaveToggle}
               className={`px-3 py-1 rounded text-sm transition-colors ${saved ? 'bg-red-500 text-white hover:bg-red-600' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
