@@ -1,3 +1,0 @@
-- [x] Add Tailwind CSS classes to ApplyJob.jsx for bordered shadowed container
-- [x] Structure layout with flexbox: job data on left, apply button on right
-- [x] Add hover effect to the apply button
