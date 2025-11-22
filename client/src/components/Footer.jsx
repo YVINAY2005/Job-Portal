@@ -3,10 +3,10 @@ import { assets } from '../assets/assets'
 
 const Footer = () => {
   return (
-    <div className="bg-gray-900 text-white py-12 px-4">
+    <div className="bg-gray-900 text-white py-6 px-4">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="flex flex-col items-center md:items-start">
-          <img src={assets.logo} alt="Logo" className="w-16 h-16 mb-4" />
+          <img src={assets.logo} alt="Logo" className="w-30 h-30 mb-4" />
           <p className="text-sm text-gray-400">Your gateway to dream jobs</p>
           <p className="text-sm text-gray-400 mt-2">Copyright @Vinay</p>
         </div>

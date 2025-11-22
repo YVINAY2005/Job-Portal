@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../assets/assets'
 import {useClerk, UserButton, useUser} from '@clerk/clerk-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
 const Navbar = () => {
     const {openSignIn}=useClerk();
     const {user}=useUser();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate=useNavigate();
+
+    const {setShowRecruiterLogin}=useContext(AppContext);
 
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -37,12 +40,13 @@ const Navbar = () => {
               ) : (
                 <>
                   <button
-                    onClick={e => openSignIn()}
+                    
                     className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
+                    onClick={e=> setShowRecruiterLogin(true)}
                   >
                     Recruiter Login
                   </button>
-                  <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors">
+                  <button onClick={e => openSignIn()} className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors">
                     Login
                   </button>
                 </>
@@ -78,6 +82,7 @@ const Navbar = () => {
                   toggleMenu();
                 }}
                 className="block w-full px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 text-left"
+                
               >
                 Recruiter Login
               </button>

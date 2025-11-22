@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import JobListing from '../components/JobListing'
 import AppDownload from '../components/AppDownload'
 import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 
 const Home = () => {
   const { jobs } = useContext(AppContext);
@@ -15,6 +16,7 @@ const Home = () => {
 
   return (
     <div>
+      <Navbar />
       <Hero />
       <JobListing />
       <AppDownload />
